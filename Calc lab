@@ -1,0 +1,54 @@
+#1 : MATH 2825 Dr. Jacob's Calculus and Analytic Geometry
+#Programming lab 1
+#Zachary Walker, 273572
+#I am trying to get the code to check the function and plot it onto a graph to show it visibily. 
+import math
+import numpy as np 
+from sympy import *
+math.exp(1)
+def f(x):
+  return np.sqrt(2*x+1)
+f(0)
+cube = lambda x: x**3
+import matplotlib.pyplot as plt 
+import numpy as np
+x = np.linspace(-5,5,1000)
+plt.plot(x,f(x))
+plt.show()
+#b is around -0.5, I found this out after plotting the function on the graph.
+from sympy import *
+import matplotlib.pyplot as plt 
+import numpy as np
+import math 
+x = np.linspace(-0.5,3,1000)
+plt.rcParams["figure.figsize"] = (8,5.5) #This is something i found online that helped adjust the range of the graph
+def f0(x):
+  return 1/(2-x)
+def f1(x):
+  return f0(f0(x))
+def f2(x):
+  return f0(f1(x))
+def f3(x):
+  return f0(f2(x))
+plt.plot(x,f0(x))
+plt.plot(x,f1(x))
+plt.plot(x,f2(x))
+plt.plot(x,f3(x))
+plt.show()
+#Repeated composition would continue to skew the plot. Every iteration of n makes the y range smaller and shifts the plot to the left.
+import math
+import matplotlib.pyplot as plt 
+import numpy as np
+x = np.linspace(1,2,1000)
+def f(x):
+   return np.sin(2*2*np.pi/x)
+plt.plot(x,f(x))
+plt.plot([1,1.001],[0,f(1.001)])
+plt.plot([1,1.01],[0,f(1.01)])
+plt.plot([1,1.1],[0,f(1.1)])
+plt.plot([1,1.5],[0,f(1.5)])
+plt.plot([1,2],[0,f(2)])
+plt.show()
+#Each secant line is apporaching a limit based on the graph of the curve.
+#The lines with points 1.01 and 1.001 are very close but the others are not. 
+#Using the line including 1.01, I got a slope of 21.545. 
